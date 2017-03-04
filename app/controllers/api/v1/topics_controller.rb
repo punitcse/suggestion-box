@@ -2,7 +2,7 @@ module Api::V1
   class TopicsController < ActionController::API
     include CoreBox::Authentication
 
-    before_action :authenticate!
+    before_action :authenticate!, except: [:submit_feedback]
     before_action :find_topic, only: [:submit_feedback]
 
     def create
@@ -20,6 +20,11 @@ module Api::V1
       else
         render json: @topic.errors.full_messages, status: 422
       end
+    end
+
+    def index
+      @topics = Topic.retrieve_topic_details(params)
+      render json: @topics
     end
 
     private
