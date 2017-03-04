@@ -22,7 +22,7 @@ class Topic < ApplicationRecord
   def send_feedback_identifier
     CoreBox::Person.all.each do |person|
       feedback_token = SecureRandom.hex
-      FeedbackTokenMailer.feedback_token_email(person, feedback_token)
+      FeedbackTokenMailer.feedback_token_email(person, topic, feedback_token)
     end
   end
 end
