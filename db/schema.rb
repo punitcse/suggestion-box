@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20170304120109) do
     t.datetime "expiry_date"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.text     "description"
   end
 
   add_foreign_key "answers", "questions"
