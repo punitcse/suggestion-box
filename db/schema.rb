@@ -97,10 +97,10 @@ ActiveRecord::Schema.define(version: 20170304184351) do
 
   create_table "topics", force: :cascade do |t|
     t.string   "name"
-    t.integer  "rating_scale"
+    t.integer  "rating_scale", default: 10
     t.datetime "expiry_date"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.text     "description"
     t.integer  "person_id"
     t.index ["person_id"], name: "index_topics_on_person_id", using: :btree

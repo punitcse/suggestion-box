@@ -3,6 +3,7 @@ class Question < ApplicationRecord
   has_many :answers
   as_enum :question_type, %i(rating subjective), prefix: true
 
-  accepts_nested_attributes_for :answers
+  validates_presence_of :content
 
+  accepts_nested_attributes_for :answers
 end
