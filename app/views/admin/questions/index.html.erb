@@ -1,0 +1,9 @@
+<h3>Topics</h3>
+
+<% @questions.each do |question| %>
+<div id="question-<%= question.id%>">
+  <div>content: <%= question.content %></div>
+  <div>name: <%= question.question_type %></div>
+  <div><%=link_to 'edit', edit_admin_topic_question_path(question, topic_id: question.topic_id) %></div>
+</div>
+<% end %>
