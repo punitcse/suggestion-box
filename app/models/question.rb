@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
   belongs_to :topic
-
-  as_enum :question_type, %(rating subjective)
+  has_many :answers
+  as_enum :question_type, %i(rating subjective), prefix: true
 end
