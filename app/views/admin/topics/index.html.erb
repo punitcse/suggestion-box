@@ -1,0 +1,9 @@
+<h3>Topics</h3>
+
+<% @topics.each do |topic| %>
+<div id="topic-<%= topic.id%>">
+  <div>name: <%= topic.name %></div>
+  <div>description: <%= topic.description %></div>
+  <div><%=link_to 'edit', edit_admin_topic_path(topic) %></div>
+</div>
+<% end %>

@@ -2574,6 +2574,7 @@ a {
   clear: both;
 }
 
+
 .z-depth-0 {
   box-shadow: none !important;
 }
@@ -8579,4 +8580,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .picker--time .picker__box {
     margin-bottom: 5em;
   }
+}
+
+/*Adding some custom css*/
+
+select {
+  display: block;
 }
