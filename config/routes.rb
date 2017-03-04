@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :topics, only: [:index] do
         post :submit_feedback, on: :member
+        get :feedback_form, on: :member
       end
 
       resources :questions
