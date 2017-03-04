@@ -6,7 +6,8 @@ module Api::V1
       return unless @question
 
       @answer = @question.answers.new(answer_params)
-      @answer.person
+      @answer.core_box_person = current_person
+
       if @answer.save
         render json: @answer
       else
@@ -15,7 +16,6 @@ module Api::V1
     end
 
     private
-
     def find_question
       @question ||= Question.find(params[:question_id])
     end
