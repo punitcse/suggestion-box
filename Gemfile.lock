@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rohanpujaris/core_box
-  revision: 39da089c8f87378178180a766050a0ac79ef0abf
+  revision: 346f73fa7c171c77fe03448a17daa8c75faffe5f
   branch: stable
   specs:
     core_box (0.1.3)
