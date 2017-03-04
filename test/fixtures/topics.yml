@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  rating_scale: 1
+  expiry_date: 2017-03-04 15:11:32
+
+two:
+  name: MyString
+  rating_scale: 1
+  expiry_date: 2017-03-04 15:11:32

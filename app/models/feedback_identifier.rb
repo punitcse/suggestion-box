@@ -1,0 +1,2 @@
+class FeedbackIdentifier < ApplicationRecord
+end
