@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(version: 20170304142836) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.text     "description"
+    t.integer  "person_id"
+    t.index ["person_id"], name: "index_topics_on_person_id", using: :btree
   end
 
   add_foreign_key "answers", "core_box_people"
