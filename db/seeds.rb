@@ -11,8 +11,8 @@ role = CoreBox::Role.first_or_create!(name: 'admin')
 
 CoreBox::PersonRole.first_or_create!(person: person, role: role)
 
-t1 = Topic.first_or_create!(name: 'GoalSheet feedback Q3')
-t2 = Topic.first_or_create!(name: 'Self Goal (lol)', rating_scale: 10)
+t1 = Topic.first_or_create!(name: 'GoalSheet feedback Q3', person: person)
+t2 = Topic.first_or_create!(name: 'Self Goal (lol)', rating_scale: 10, person: person)
 
 q1 = Question.first_or_create!(
       question_type: Question.question_types[:subjective],

@@ -1,7 +1,5 @@
 module Api::V1
   class TopicsController < ActionController::API
-    include CoreBox::Authentication
-
     before_filter :authenticate!
 
     def create
@@ -13,8 +11,15 @@ module Api::V1
       end
     end
 
+    def graph
+      render json: topic.graph_details
+    end
 
     private
+
+    def find_topic
+      Topic.find(params[:id])
+    end
 
     def topic_params
       params.require(:topic).permit(:name, :rating_scale, :description, :expiry_date)
