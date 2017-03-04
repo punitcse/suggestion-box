@@ -4,9 +4,11 @@
 
 <%= simple_form_for [:admin, @topic] do |f| %>
   <%= f.input :name %>
-  <%= f.input :rating_scale, as: :integer  %>
+  <%= f.input :rating_scale, as: :integer, label: 'Maximum Rating'  %>
   <%= f.input :description, as: :text  %>
 
-  <%= f.input :expiry_date, as: :date%>
+  <%= f.input :expiry_date, as: :date %>
+
+  <%= f.submit %>
 
 <% end %>

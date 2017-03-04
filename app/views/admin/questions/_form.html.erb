@@ -1,0 +1,12 @@
+<% @question.errors.full_messages.each do |msg| %>
+  <%= msg %>
+<% end %>
+
+<%= simple_form_for [:admin, :topic, @question] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :question_type_cd, as: :select, collection: Question.question_types.hash, include_blank: false %>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
