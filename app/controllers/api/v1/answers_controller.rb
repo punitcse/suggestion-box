@@ -21,7 +21,7 @@ module Api::V1
     end
 
     def answer_params
-      params.require(:answers).permit(:content)
+      params.require(:answers).permit(:content, :rating)
     end
   end
 end
