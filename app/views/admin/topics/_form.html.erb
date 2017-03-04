@@ -1,0 +1,12 @@
+<% @topic.errors.full_messages.each do |msg| %>
+  <%= msg %>
+<% end %>
+
+<%= simple_form_for [:admin, @topic] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :rating_scale, as: :integer  %>
+  <%= f.input :description, as: :text  %>
+
+  <%= f.input :expiry_date, as: :date%>
+
+<% end %>
