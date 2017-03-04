@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'core_box', git: 'git@github.com:rohanpujaris/core_box.git'
+gem 'core_box', git: 'https://github.com/rohanpujaris/core_box', branch: 'stable'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.2.rc1', '< 5.1'
