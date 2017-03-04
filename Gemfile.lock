@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/rohanpujaris/core_box
-  revision: f1bd57f19cdd13b3cd5e94bd1543ce399ff76fef
+  revision: 39da089c8f87378178180a766050a0ac79ef0abf
   branch: stable
   specs:
-    core_box (0.1.2)
+    core_box (0.1.3)
       bcrypt
       rails (~> 5.0.2)
 
@@ -185,4 +185,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.4
+   1.14.6
