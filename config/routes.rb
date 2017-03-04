@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount CoreBox::Engine => "/core_box"
+
   namespace :api do
     namespace :v1 do
       resources :topics, only: [:index] do
@@ -16,4 +18,6 @@ Rails.application.routes.draw do
       resources :questions
     end
   end
+  get :home, to: 'pages#home'
+  get :topics, to: 'pages#topics'
 end
