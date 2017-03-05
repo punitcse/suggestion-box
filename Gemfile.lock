@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rohanpujaris/core_box
-  revision: 39da089c8f87378178180a766050a0ac79ef0abf
+  revision: 346f73fa7c171c77fe03448a17daa8c75faffe5f
   branch: stable
   specs:
     core_box (0.1.3)
@@ -131,6 +131,9 @@ GEM
       tilt (>= 1.1, < 3)
     simple_enum (2.3.0)
       activesupport (>= 4.0.0)
+    simple_form (3.4.0)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     spring (2.0.1)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -177,12 +180,16 @@ DEPENDENCIES
   rails (>= 5.0.2.rc1, < 5.1)
   sass-rails (~> 5.0)
   simple_enum (~> 2.3)
+  simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+
+RUBY VERSION
+   ruby 2.3.1p112
 
 BUNDLED WITH
    1.14.6

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304142836) do
+ActiveRecord::Schema.define(version: 20170304184351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,8 @@ ActiveRecord::Schema.define(version: 20170304142836) do
     t.integer  "question_id"
     t.integer  "rating"
     t.text     "content"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.integer  "core_box_person_id"
-    t.index ["core_box_person_id"], name: "index_answers_on_core_box_person_id", using: :btree
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
   end
 
@@ -99,16 +97,15 @@ ActiveRecord::Schema.define(version: 20170304142836) do
 
   create_table "topics", force: :cascade do |t|
     t.string   "name"
-    t.integer  "rating_scale"
+    t.integer  "rating_scale", default: 10
     t.datetime "expiry_date"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.text     "description"
     t.integer  "person_id"
     t.index ["person_id"], name: "index_topics_on_person_id", using: :btree
   end
 
-  add_foreign_key "answers", "core_box_people"
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "topics"
 end

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi <%= @person.first_name %></p>
+    <p>
+      <p> New Topic: <%= @topic.name %></p>
+      <%= link_to 'Click Here to submit feedback', feedback_form_api_v1_topic_url(@topic, feedback_token: @feedback_token) %>
+
+      <p> Your Feedback Token : <%= @feedback_token %> </p>
+    </p>
+  </body>
+</html>

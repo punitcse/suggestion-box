@@ -5,6 +5,18 @@ class Topic < ApplicationRecord
 
   accepts_nested_attributes_for :questions
 
+  after_create :send_feedback_identifier
+
+  def self.retrieve_topic_details(params)
+    if params[:with_question] && params[:with_answers]
+      Topic.all.as_json(include: { questions: { include: :answers}})
+    elsif params[:with_question]
+      Topic.all.as_json(include: :questions)
+    else
+      Topic.all.as_json
+    end
+  end
+
   def graph_details
     points = partition_points
     default_hash = {sad: 0, neutral: 0, happy: 0}
@@ -27,5 +39,14 @@ class Topic < ApplicationRecord
   def partition_points
     partition = (rating_scale / 3).ceil
     partitions = [partition, partition * 2]
+  end
+
+  private
+
+  def send_feedback_identifier
+    CoreBox::Person.all.each do |person|
+      feedback_token = SecureRandom.hex
+      FeedbackTokenMailer.feedback_token_email(person, self, feedback_token)
+    end
   end
 end

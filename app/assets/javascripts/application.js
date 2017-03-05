@@ -13,4 +13,32 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require materialize
+
+$(document).ready(function(){
+  $('.modal').modal();
+  $(".button-collapse").sideNav();
+
+  $('#login-form, #signup-form').submit(function() {
+    e.preventDefault();
+  });
+
+  $('#login-btn').click(function (e) {
+    e.preventDefault();
+    var form = $(this).closest('form');
+    $.ajax({
+      url: form.attr('action'),
+      data: form.serialize(),
+      method: 'POST',
+      dataType: 'JSON',
+      success: function(data) {
+        debugger
+        localStorage.setItem('token', data.token)
+        window.location = "/topics"
+      },
+      error: function(jqXHR) {
+        toastr.error(jqXHR.responseJSON.error.message)
+      }
+    })
+  });
+});
