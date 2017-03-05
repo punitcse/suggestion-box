@@ -58,3 +58,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'simple_enum', '~> 2.3'
 
 gem 'simple_form'
+gem 'lazy_high_charts'

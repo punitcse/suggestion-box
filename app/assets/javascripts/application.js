@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize
+//= require highcharts/highcharts
+//= require feedback-chart
 
 $(document).ready(function(){
   $('.modal').modal();
