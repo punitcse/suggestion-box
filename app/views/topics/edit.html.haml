@@ -15,7 +15,13 @@
                   = q.object.content
                 %p
                   - if q.object.question_type_rating?
-                    %h1 rating
+                    %p.range-field
+                      = a.text_field :rating, max: @topic.rating_scale, min: 1, type: 'range'
                   - else
-                    = a.text_area :content, class: "materialize-textarea", rows: 2
+                    .input-field
+                      %i.material-icons.prefix mode_edit
+                      = a.text_area :content, class: "materialize-textarea", id: 'icon_prefix2', rows: 2
+                      %label{:for => "icon_prefix2"} Type Here
+
     .col.s12.m6
+
