@@ -1,0 +1,10 @@
+<% @suggestion.errors.full_messages.each do |msg| %>
+  <%= msg %>
+<% end %>
+
+<%= simple_form_for :suggestion, url: new_api_v1_suggestion_path do |f| %>
+  <%= f.input :description, as: :text  %>
+
+  <%= f.submit %>
+
+<% end %>
