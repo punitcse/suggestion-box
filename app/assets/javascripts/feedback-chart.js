@@ -36,14 +36,22 @@ function renderChart(data) {
                 name: 'Happy',
                 y: happy_percentage,
                 sliced: true,
+                color: '#1D8348',
                 selected: true
             }, {
                 name: 'ok',
+                color: '#F4D03F',
                 y: neutral_percentage
             }, {
                 name: 'sad',
+                color: '#CD5C5C',
                 y: sad_percentage
             }]
         }]
     });
+
+    Highcharts.setOptions({
+        colors: ['red', 'green', 'grey']
+    });
+
 }
