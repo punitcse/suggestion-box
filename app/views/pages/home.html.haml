@@ -1,0 +1,7 @@
+.row
+  .col.s12.m6
+    = render 'topics/feedback_chart'
+  .col.s12.m6
+
+:javascript
+  renderChart(JSON.parse('#{Topic.graph_details.to_json}'));

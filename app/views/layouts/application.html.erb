@@ -4,12 +4,12 @@
     <title>SuggestionBox</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
   </head>
 
-  <body>
+  <body class="<%= params[:controller] %> <%= params[:action] %>">
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
@@ -17,8 +17,8 @@
           <a href="#!" class="brand-logo">SuggestionBox</a>
           <ul class="right hide-on-med-and-down">
             <% if current_person %>
-              <li><a href="#" id="signup">Topics</a></li>
-              <li><a href="#" id="login" class="">Open Suggestion</a></li>
+              <li><%= link_to 'Topics', topics_path %></li>
+              <li><%= link_to 'Open Suggestions', new_suggestion_path %></li>
             <% else %>
               <li><a href="#signup" id="signup">Signup</a></li>
               <li><a href="#login" id="login" class="">Login</a></li>
@@ -26,8 +26,8 @@
           </ul>
           <ul class="side-nav" id="mobile-demo">
             <% if current_person %>
-              <li><a href="#" id="signup">Topics</a></li>
-              <li><a href="#" id="login" class="">Open Suggestion</a></li>
+              <li><%= link_to 'Topics', topics_path %></li>
+              <li><%= link_to 'Open Suggestions', new_suggestion_path %></li>
             <% else %>
               <li><a href="#signup" id="signup">Signup</a></li>
               <li><a href="#login" id="login" class="">Login</a></li>

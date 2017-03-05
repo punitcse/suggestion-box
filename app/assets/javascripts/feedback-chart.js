@@ -8,10 +8,11 @@ function renderChart(data) {
             plotBackgroundColor: null,
             plotBorderWidth: null,
             plotShadow: false,
-            type: 'pie'
+            type: 'pie',
+            backgroundColor:'rgba(255, 255, 255, 0.0)'
         },
         title: {
-            text: 'Feedback Chart'
+            text: data.text
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

@@ -41,4 +41,4 @@
         %i.material-icons.right send
 
 :javascript
-  renderChart(JSON.parse('#{@topic.graph_details.to_json}'));
+  renderChart(JSON.parse('#{@topic.graph_details.merge(text: 'Feedback Chart').to_json}'));

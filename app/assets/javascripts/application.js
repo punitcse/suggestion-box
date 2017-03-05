@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require materialize
 //= require highcharts/highcharts
 //= require toastr
@@ -40,7 +39,7 @@ $(document).ready(function(){
   $('.modal').modal();
   $(".button-collapse").sideNav();
 
-  $('#login-form, #signup-form, #submit-feedback-form').submit(function(e) {
+  $('#login-form, #signup-form, #submit-feedback-form, .simple_form.suggestion').submit(function(e) {
     e.preventDefault();
   });
 
@@ -69,12 +68,28 @@ $(document).ready(function(){
       method: 'POST',
       dataType: 'JSON',
       success: function(data) {
-        debugger
         localStorage.setItem('token', data.token)
         window.location = "/topics"
       },
       error: function(jqXHR) {
         toastr.error(jqXHR.responseJSON.error.message)
+      }
+    })
+  });
+
+  $('.simple_form.suggestion button').click(function(e) {
+    e.preventDefault();
+    var form = $(this).closest('form')
+    $.ajax({
+      url: form.attr('action'),
+      data: form.serialize(),
+      method: 'POST',
+      dataType: 'JSON',
+      success: function(data) {
+        window.location = "/topics"
+      },
+      error: function(jqXHR) {
+        toastr.error(jqXHR.responseJSON.message)
       }
     })
   });

@@ -7,13 +7,30 @@ class Topic < ApplicationRecord
 
   after_create :send_feedback_identifier
 
-  def self.retrieve_topic_details(params)
-    if params[:with_question] && params[:with_answers]
-      Topic.all.as_json(include: { questions: { include: :answers}})
-    elsif params[:with_question]
-      Topic.all.as_json(include: :questions)
-    else
-      Topic.all.as_json
+  scope :unexpired, -> { all }
+
+  class << self
+    def retrieve_topic_details(params)
+      if params[:with_question] && params[:with_answers]
+        Topic.all.as_json(include: { questions: { include: :answers}})
+      elsif params[:with_question]
+        Topic.all.as_json(include: :questions)
+      else
+        Topic.all.as_json
+      end
+    end
+
+    # We can write single query for this
+    def graph_details
+      details = {sad: 0, neutral: 0, happy: 0}
+      Topic.unexpired.each do |t|
+        topic_detail = t.graph_details
+        [:sad, :neutral, :happy].each do |expression|
+          details[expression] = details[expression] + topic_detail[expression]
+        end
+      end
+      details[:total] = details.values.reduce(:+)
+      details
     end
   end
 

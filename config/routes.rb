@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get :topics, to: 'pages#topics'
 
   resources :topics, except: [:index]
+  resources :suggestions
 
   root "pages#home"
 end
