@@ -14,3 +14,23 @@
  *= require_self
  *= require custom
  */
+
+ .mar-top-30 {
+  margin-top: 30px;
+ }
+
+.margin-0 {
+  margin-bottom: 0px !important;
+ }
+.margin-left-12 {
+  margin-left: 12px;
+}
+// body {
+//   display: flex;
+//   min-height: 100vh;
+//   flex-direction: column;
+// }
+
+// main {
+//   flex: 1 0 auto;
+// }

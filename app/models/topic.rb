@@ -20,7 +20,7 @@ class Topic < ApplicationRecord
   def graph_details
     points = partition_points
     default_hash = {sad: 0, neutral: 0, happy: 0}
-    questions.question_type_ratings.includes(:answers).each_with_index({}) do |question, hash|
+    details = questions.question_type_ratings.includes(:answers).each_with_object(default_hash) do |question, hash|
       question.answers.each do |answer|
         rating = answer.rating
         key = case
@@ -34,10 +34,12 @@ class Topic < ApplicationRecord
         hash[key] = hash[key] + 1
       end
     end
+    details[:total] = details.values.reduce(:+)
+    details
   end
 
   def partition_points
-    partition = (rating_scale / 3).ceil
+    partition = (rating_scale/3).ceil
     partitions = [partition, partition * 2]
   end
 

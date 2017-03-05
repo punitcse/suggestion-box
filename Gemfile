@@ -8,6 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'core_box', git: 'https://github.com/rohanpujaris/core_box', branch: 'stable'
+gem "haml-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.2.rc1', '< 5.1'
@@ -57,3 +58,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'simple_enum', '~> 2.3'
 
 gem 'simple_form'
+gem 'lazy_high_charts'
