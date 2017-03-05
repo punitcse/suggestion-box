@@ -1,12 +1,21 @@
 .mar-top-30
-%h4= @topic.name
-%hr
-.mar-top-30
-= form_for @topic do |f|
+
+= form_for @topic, url: submit_feedback_api_v1_topic_path, method: :put,
+  html: {id: 'submit-feedback-form'} do |f|
+  .row.margin-0
+    %h4.col.s12.m7
+      = @topic.name
+    .div.col.s12.m5{class: ("hide" if params[:feedback_token].present?)}
+      .input-field
+        %i.material-icons.prefix vpn_key
+        %input#autocomplete-input{type: "text", name: 'feedback_token', value: params[:feedback_token]}
+        %label{:for => "autocomplete-input"} Feedback Identifier
+  %hr
+  .mar-top-30
   .row
     .col.s12.m6
       = f.fields_for :questions do |q|
-        = q.fields_for :answers do |a|
+        = q.fields_for :answers, q.object.answers.build do |a|
           .col.s12.m12
             .card
               .card-content
@@ -25,6 +34,11 @@
 
     .col.s12.m6
       = render 'feedback_chart'
+
+    .col.s12.m12
+      %button.btn.waves-effect.waves-light.btn-large.margin-left-12#submit-feedback
+        Submit
+        %i.material-icons.right send
 
 :javascript
   renderChart(JSON.parse('#{@topic.graph_details.to_json}'));

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       end
 
       resources :topics, only: [:index] do
-        post :submit_feedback, on: :member
+        put :submit_feedback, on: :member
         get :feedback_form, on: :member
       end
 

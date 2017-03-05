@@ -6,48 +6,42 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href= "https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"></link>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>
   </head>
 
   <body>
-    <header>
-      <div class="navbar-fixed">
-        <nav>
-          <div class="nav-wrapper">
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <a href="#!" class="brand-logo">SuggestionBox</a>
-            <ul class="right hide-on-med-and-down">
-              <% if current_person %>
-                <li><a href="#" id="signup">Topics</a></li>
-                <li><a href="#" id="login" class="">Open Suggestion</a></li>
-              <% else %>
-                <li><a href="#signup" id="signup">Signup</a></li>
-                <li><a href="#login" id="login" class="">Login</a></li>
-              <% end %>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-              <% if current_person %>
-                <li><a href="#" id="signup">Topics</a></li>
-                <li><a href="#" id="login" class="">Open Suggestion</a></li>
-              <% else %>
-                <li><a href="#signup" id="signup">Signup</a></li>
-                <li><a href="#login" id="login" class="">Login</a></li>
-              <% end %>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <div class="container">
-        <div class="row">
-          <%= yield %>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <a href="#!" class="brand-logo">SuggestionBox</a>
+          <ul class="right hide-on-med-and-down">
+            <% if current_person %>
+              <li><a href="#" id="signup">Topics</a></li>
+              <li><a href="#" id="login" class="">Open Suggestion</a></li>
+            <% else %>
+              <li><a href="#signup" id="signup">Signup</a></li>
+              <li><a href="#login" id="login" class="">Login</a></li>
+            <% end %>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <% if current_person %>
+              <li><a href="#" id="signup">Topics</a></li>
+              <li><a href="#" id="login" class="">Open Suggestion</a></li>
+            <% else %>
+              <li><a href="#signup" id="signup">Signup</a></li>
+              <li><a href="#login" id="login" class="">Login</a></li>
+            <% end %>
+          </ul>
         </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <%= yield %>
       </div>
-    </main>
+    </div>
 
     <%= yield :footer %>
 
