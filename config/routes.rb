@@ -31,5 +31,8 @@ Rails.application.routes.draw do
   end
   get :home, to: 'pages#home'
   get :topics, to: 'pages#topics'
-  resources :topics
+
+  resources :topics, except: [:index]
+
+  root "pages#home"
 end
