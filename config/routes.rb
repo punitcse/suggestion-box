@@ -3,6 +3,16 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :topics do
+        member do
+          get :graph
+        end
+      end
+
+      resources :questions do
+        resources :answers
+      end
+
       resources :topics, only: [:index] do
         post :submit_feedback, on: :member
         get :feedback_form, on: :member
