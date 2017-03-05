@@ -12,37 +12,44 @@
   </head>
 
   <body>
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <a href="#!" class="brand-logo">SuggestionBox</a>
-          <ul class="right hide-on-med-and-down">
-            <% if current_person %>
-              <li><a href="#" id="signup">Topics</a></li>
-              <li><a href="#" id="login" class="">Open Suggestion</a></li>
-            <% else %>
-              <li><a href="#signup" id="signup">Signup</a></li>
-              <li><a href="#login" id="login" class="">Login</a></li>
-            <% end %>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <% if current_person %>
-              <li><a href="#" id="signup">Topics</a></li>
-              <li><a href="#" id="login" class="">Open Suggestion</a></li>
-            <% else %>
-              <li><a href="#signup" id="signup">Signup</a></li>
-              <li><a href="#login" id="login" class="">Login</a></li>
-            <% end %>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <div class="container">
-      <div class="row">
-        <%= yield %>
+    <header>
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <a href="#!" class="brand-logo">SuggestionBox</a>
+            <ul class="right hide-on-med-and-down">
+              <% if current_person %>
+                <li><a href="#" id="signup">Topics</a></li>
+                <li><a href="#" id="login" class="">Open Suggestion</a></li>
+              <% else %>
+                <li><a href="#signup" id="signup">Signup</a></li>
+                <li><a href="#login" id="login" class="">Login</a></li>
+              <% end %>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+              <% if current_person %>
+                <li><a href="#" id="signup">Topics</a></li>
+                <li><a href="#" id="login" class="">Open Suggestion</a></li>
+              <% else %>
+                <li><a href="#signup" id="signup">Signup</a></li>
+                <li><a href="#login" id="login" class="">Login</a></li>
+              <% end %>
+            </ul>
+          </div>
+        </nav>
       </div>
-    </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="row">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+
+    <%= yield :footer %>
 
     <% unless current_person %>
       <div id="signup" class="modal modal-fixed-footer">
