@@ -32,16 +32,24 @@ function renderChart() {
                 name: 'Happy',
                 y: 30,
                 sliced: true,
+                color: '#1D8348',
                 selected: true
             }, {
                 name: 'ok',
+                color: '#F4D03F',
                 y: 60
             }, {
                 name: 'sad',
+                color: '#CD5C5C',
                 y: 10
             }]
         }]
     });
+
+    Highcharts.setOptions({
+        colors: ['red', 'green', 'grey']
+    });
+
 }
 $(document).ready(function() {
     renderChart();
