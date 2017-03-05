@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   end
   get :home, to: 'pages#home'
   get :topics, to: 'pages#topics'
+  resources :topics
 end

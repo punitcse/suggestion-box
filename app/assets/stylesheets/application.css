@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+ .mar-top-30 {
+  margin-top: 30px;
+ }

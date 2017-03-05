@@ -1,0 +1,21 @@
+.mar-top-30
+%h4= @topic.name
+%hr
+.mar-top-30
+= form_for @topic do |f|
+  .row
+    .col.s12.m6
+      = f.fields_for :questions do |q|
+        = q.fields_for :answers do |a|
+          .col.s12.m12
+            .card
+              .card-content
+                %i{class: "material-icons medium"}question_answer
+                %span.card-title
+                  = q.object.content
+                %p
+                  - if q.object.question_type_rating?
+                    %h1 rating
+                  - else
+                    = a.text_area :content, class: "materialize-textarea", rows: 2
+    .col.s12.m6
