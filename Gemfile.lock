@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rohanpujaris/core_box
-  revision: 346f73fa7c171c77fe03448a17daa8c75faffe5f
+  revision: 40226ab1adba5d39ef1141c58782f41ad76791aa
   branch: stable
   specs:
     core_box (0.1.3)
@@ -208,9 +208,6 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-
-RUBY VERSION
-   ruby 2.3.1p112
 
 BUNDLED WITH
    1.14.6
