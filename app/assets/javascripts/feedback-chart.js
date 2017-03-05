@@ -1,4 +1,8 @@
-function renderChart() {
+function renderChart(data) {
+    console.log(data)
+    var sad_percentage = Math.ceil(data.sad * 100/ data.total)
+    var happy_percentage = Math.ceil(data.happy * 100/ data.total)
+    var neutral_percentage = 100 - happy_percentage - sad_percentage
     Highcharts.chart('feedback-chart', {
         chart: {
             plotBackgroundColor: null,
@@ -30,19 +34,16 @@ function renderChart() {
             colorByPoint: true,
             data: [{
                 name: 'Happy',
-                y: 30,
+                y: happy_percentage,
                 sliced: true,
                 selected: true
             }, {
                 name: 'ok',
-                y: 60
+                y: neutral_percentage
             }, {
                 name: 'sad',
-                y: 10
+                y: sad_percentage
             }]
         }]
     });
 }
-$(document).ready(function() {
-    renderChart();
-})
