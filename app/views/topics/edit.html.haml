@@ -25,3 +25,6 @@
 
     .col.s12.m6
       = render 'feedback_chart'
+
+:javascript
+  renderChart(JSON.parse('#{@topic.graph_details.to_json}'));
