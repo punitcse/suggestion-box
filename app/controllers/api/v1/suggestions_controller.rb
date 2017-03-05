@@ -1,7 +1,5 @@
 module Api::V1
   class SuggestionsController < ApplicationController
-    include CoreBox::Authentication
-
     before_action :authenticate!
 
     def new
@@ -10,7 +8,7 @@ module Api::V1
 
     def create
       @suggestion = Suggestion.new(suggestions_params)
-      if suggestion.save
+      if @suggestion.save
         render json: @suggestion
       else
         render json: @suggestion.errors.full_messages, status: 422

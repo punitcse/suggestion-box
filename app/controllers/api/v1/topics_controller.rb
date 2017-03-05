@@ -1,7 +1,5 @@
 module Api::V1
   class TopicsController < ActionController::API
-    include CoreBox::Authentication
-
     before_action :authenticate!, except: [:submit_feedback]
     before_action :find_topic, only: [:submit_feedback]
 
