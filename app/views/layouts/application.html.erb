@@ -14,7 +14,10 @@
       <nav>
         <div class="nav-wrapper">
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <a href="#!" class="brand-logo">SuggestionBox</a>
+          <a href="#!" class="brand-logo">
+            <%= image_tag "suggestion.png", class: 'logo middle-aligned-box' %>
+            <div class="middle-aligned-box logo-text">SuggestionBox</div>
+          </a>
           <ul class="right hide-on-med-and-down">
             <% if current_person %>
               <li><%= link_to 'Topics', topics_path %></li>

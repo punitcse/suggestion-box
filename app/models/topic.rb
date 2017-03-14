@@ -1,5 +1,6 @@
 class Topic < ApplicationRecord
   has_many :questions
+  has_many :answers, through: :questions
   has_many :feedback_identifiers
   belongs_to :person, class_name: 'CoreBox::Person'
 
@@ -65,6 +66,7 @@ class Topic < ApplicationRecord
   def send_feedback_identifier
     CoreBox::Person.all.each do |person|
       feedback_token = SecureRandom.hex
+      feedback_identifiers.create(token: feedback_token)
       FeedbackTokenMailer.feedback_token_email(person, self, feedback_token)
     end
   end

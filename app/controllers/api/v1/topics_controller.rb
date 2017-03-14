@@ -1,7 +1,7 @@
 module Api::V1
-  class TopicsController < ActionController::API
+  class TopicsController < ApplicationController
     before_action :authenticate!, except: [:submit_feedback, :create]
-    authenticate_roles only: [:create], :admin
+    authenticate_roles({only: [:create]}, :admin)
     before_action :find_topic, only: [:submit_feedback]
     before_action :validate_feedback_identifier, only: [:submit_feedback]
 

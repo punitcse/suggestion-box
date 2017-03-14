@@ -14,7 +14,18 @@
  *= require_self
  *= require custom
  */
-
+.logo {
+  width: 45px;
+  margin: 10px 0px 12px 14px;
+}
+.middle-aligned-box {
+  display: inline-block;;
+  vertical-align: middle;
+}
+.logo-text {
+  font-size: 18px;
+  font-weight: normal;
+}
  .mar-top-30 {
   margin-top: 30px;
  }

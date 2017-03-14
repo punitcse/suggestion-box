@@ -33,7 +33,8 @@
                       %label{:for => "icon_prefix2"} Type Here
 
     .col.s12.m6
-      = render 'feedback_chart'
+      %div{class: ("hide" if @topic.answers.merge(Question.question_type_ratings).blank?)}
+        = render 'feedback_chart'
 
     .col.s12.m12
       %button.btn.waves-effect.waves-light.btn-large.margin-left-12#submit-feedback

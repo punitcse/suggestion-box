@@ -1,7 +1,18 @@
+.mar-top-30
 .row
   .col.s12.m6
+    %h4 Overall Feedback graph
     = render 'topics/feedback_chart'
-  .col.s12.m6
+  .col.s12.m5.offset-m1
+    - @topics.each do |topic|
+      %ul.collection.with-header
+        %li.collection-header
+          %h5= topic.name
+        %li.collection-item
+          %div
+            Submit Responses
+            %a.secondary-content{:href => "#{edit_topic_path(topic)}"}
+              %i.material-icons send
 
 :javascript
   renderChart(JSON.parse('#{Topic.graph_details.to_json}'));

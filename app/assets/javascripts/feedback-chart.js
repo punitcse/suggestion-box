@@ -9,7 +9,13 @@ function renderChart(data) {
             plotBorderWidth: null,
             plotShadow: false,
             type: 'pie',
-            backgroundColor:'rgba(255, 255, 255, 0.0)'
+            backgroundColor:'rgba(255, 255, 255, 0.0)',
+            margin: [0,0,0,0],
+            padding: 0,
+            minPadding: 0,
+            maxPadding: 0,
+            spacing: [0, 0, 0, 0],
+            height: 300
         },
         title: {
             text: data.text
@@ -27,7 +33,8 @@ function renderChart(data) {
                     style: {
                         color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                     }
-                }
+                },
+                borderWidth: 0
             }
         },
         series: [{
@@ -55,4 +62,5 @@ function renderChart(data) {
         colors: ['red', 'green', 'grey']
     });
 
+    $('.highcharts-credits').remove();
 }
